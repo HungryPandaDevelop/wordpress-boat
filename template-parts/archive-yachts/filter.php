@@ -1,0 +1,206 @@
+<div class="sidebar-search">
+  <div class="sidebar-search-controls">
+    <div class="sidebar-btn active close-sidebar-search"></div>
+    <div class="close-btn--black close-sidebar-search"></div>
+  </div>
+  <form class="search-yachts-form" action="/html/pages/yachts/list.html">
+    <div class="search-main">
+      <input class="input-search" type="text" name="title"
+        placeholder="<? changeLang('Enter name yacht','Введите название яхты'); ?>" value="<? echo $_GET['title']; ?>">
+      <div class="search-ico"></div>
+    </div>
+    <div class="sidebar-search-item active"><i></i>
+      <h3>
+        <? changeLang('vessel type','тип судна'); ?>
+      </h3>
+      <div class="sidebar-item-container">
+        <div class="form-line">
+          <div class="checkbox-container">
+          </div>
+          <div class="checkbox">
+            <label>
+              <? changeLang('All yachts','Все яхты'); ?>
+              <input type="radio" name="yachtsCategory" value="" <? if($_GET['yachtsCategory']=='' ){?>checked="checked"
+              <?} ?> ><span></span>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <? changeLang('Boats','Катера'); ?>
+              <input type="radio" name="yachtsCategory" value="katera" <? if($_GET['yachtsCategory']=='katera'
+                ){?>checked="checked"
+              <?} ?>><span></span>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <? changeLang('Yachts','Яхты'); ?>
+              <input type="radio" name="yachtsCategory" value="yahty-standart" <?
+                if($_GET['yachtsCategory']=='yahty-standart' ){?>checked="checked"
+              <?} ?>><span></span>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <? changeLang('Super yachts','Супер Яхты'); ?>
+              <input type="radio" name="yachtsCategory" value="super-yahty" <? if($_GET['yachtsCategory']=='super-yahty'
+                ){?>checked="checked"
+              <?} ?>><span></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-search-item active"><i></i>
+      <h3>
+        <? changeLang('length','длина'); ?>
+      </h3>
+      <div class="sidebar-item-container">
+        <div class="search-tabs">
+          <span class="active" data-from="longFromM" data-to="longToM" data-type="longM">
+            <? changeLang('meters','Метры'); ?>
+          </span>
+          <span data-from="longFromF" data-to="longToF" data-type="longF">
+            <? changeLang('feet','Футы'); ?>
+          </span>
+        </div>
+        <div class="tab-item active">
+          <div class="range-slider-box range-slider-second">
+            <div class="range-sliders-input">
+              <input type="text" name="longFromM" class="from input-decorate"
+                value="<? if($_GET['longFromM'] ){ echo $_GET['longFromM'];}else{echo 0;}?>">
+              <span>-</span>
+              <input type="text" name="longToM" class="to input-decorate"
+                value="<? if($_GET['longToM'] ){ echo $_GET['longToM'];}else{echo 55;}?>">
+            </div>
+            <div class="range-slider" data-type="double" data-min="1" data-max="55"
+              data-from="<? if($_GET['longFromM'] ){ echo $_GET['longFromM'];}else{echo 0;}?>"
+              data-to="<? if($_GET['longToM'] ){ echo $_GET['longToM'];}else{echo 55;}?>"></div>
+          </div>
+        </div>
+        <div class="tab-item">
+
+          <div class="range-slider-box range-slider-second">
+            <div class="range-sliders-input">
+              <input type="text" name="longFromF" class="from input-decorate"
+                value="<? if($_GET['longFromF'] ){ echo $_GET['longFromF'];}else{echo 0;}?>">
+              <span>-</span>
+              <input type="text" name="longToF" class="to input-decorate"
+                value="<? if($_GET['longToF'] ){ echo $_GET['longToF'];}else{echo 115;}?>">
+            </div>
+            <div class="range-slider" data-type="double" data-min="1" data-max="115"
+              data-from="<? if($_GET['longFromF'] ){ echo $_GET['longFromM'];}else{echo 0;}?>"
+              data-to="<? if($_GET['longToF'] ){ echo $_GET['longToF'];}else{echo 115;}?>"></div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="sidebar-search-item <? if($_GET['priceFromA'] ){?>active<?}?>"><i></i>
+      <h3>
+        <? changeLang('price per hour','цена за час'); ?>
+      </h3>
+      <div class="sidebar-item-container">
+        <div class="search-tabs">
+          <span class="active" data-from="priceFromA" data-to="priceToA">AED</span>
+          <!-- <span data-from="priceFromR" data-to="priceToR">RUB</span> -->
+        </div>
+        <div class="range-slider-box range-slider-second">
+          <div class="range-sliders-input">
+            <input type="text" name="priceFromA" class="from input-decorate"
+              value="<? if($_GET['priceFromA'] ){ echo $_GET['priceFromA'];}else{echo 0;}?>">
+            <span>-</span>
+            <input type="text" name="priceToA" class="to input-decorate"
+              value="<? if($_GET['priceToA'] ){ echo $_GET['priceToA'];}else{echo 4000;}?>">
+          </div>
+          <div class="range-slider" data-type="double" data-min="1" data-max="4000"
+            data-from="<? if($_GET['priceFromA'] ){ echo $_GET['priceFromA'];}else{echo 0;}?>"
+            data-to="<? if($_GET['priceToA'] ){ echo $_GET['priceToA'];}else{echo 4000;}?>"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-search-item <? if($_GET['guestFrom'] ){?>active<?}?>"><i></i>
+      <h3>
+        <? changeLang('number of guests','количество гостей'); ?>
+      </h3>
+      <div class="sidebar-item-container">
+
+
+        <div class="range-slider-box range-slider-second">
+          <div class="range-sliders-input">
+            <input type="text" name="guestFrom" class="from input-decorate"
+              value="<? if($_GET['guestFrom'] ){ echo $_GET['guestFrom'];}else{echo 0;}?>">
+            <span>-</span>
+            <input type="text" name="guestTo" class="to input-decorate"
+              value="<? if($_GET['guestTo'] ){ echo $_GET['guestTo'];}else{echo 60;}?>">
+          </div>
+          <div class="range-slider" data-type="double" data-min="1" data-max="60"
+            data-from="<? if($_GET['guestFrom'] ){ echo $_GET['guestFrom'];}else{echo 0;}?>"
+            data-to="<? if($_GET['guestTo'] ){ echo $_GET['guestTo'];}else{echo 60;}?>"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-search-item  <? if($_GET['cabinFrom'] ){?>active<?}?>"><i></i>
+      <h3>
+        <? changeLang('number of cabins','количество кают'); ?>
+      </h3>
+      <div class="sidebar-item-container">
+
+        <div class="range-slider-box range-slider-second">
+          <div class="range-sliders-input">
+            <input type="text" name="cabinFrom" class="from input-decorate"
+              value="<? if($_GET['cabinFrom'] ){ echo $_GET['cabinFrom'];}else{echo 0;}?>">
+            <span>-</span>
+            <input type="text" name="cabinTo" class="to input-decorate"
+              value="<? if($_GET['cabinTo'] ){ echo $_GET['cabinTo'];}else{echo 4;}?>">
+          </div>
+          <div class="range-slider" data-type="double" data-min="1" data-max="4"
+            data-from="<? if($_GET['cabinFrom'] ){ echo $_GET['cabinFrom'];}else{echo 0;}?>"
+            data-to="<? if($_GET['cabinTo'] ){ echo $_GET['cabinTo'];}else{echo 4;}?>"></div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="sidebar-search-item"><i></i>
+      <h3>год постройки</h3>
+      <div class="sidebar-item-container">
+        <div class="range-sliders-outer">
+          <div class="range-sliders-input">
+            <input class="input-decorate range-input-from" type="text" value="2000" name="yearFrom"><span>-</span>
+            <input class="input-decorate range-input-to" type="text" value="2022" name="yearTo">
+          </div>
+        </div>
+        <div class="range-sliders-container style-range-container range-slider-second">
+          <div class="slider-track"></div>
+          <div class="slider-track slider-track-color"></div>
+          <input class="slider-1" type="range" min="2000" max="2022" value="2000">
+          <input class="slider-2" type="range" min="2000" max="2022" value="2022">
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="sidebar-search-item"><i></i>
+      <h3>год рефита</h3>
+      <div class="sidebar-item-container">
+        <div class="range-sliders-outer">
+          <div class="range-sliders-input">
+            <input class="input-decorate range-input-from" type="text" value="2012" name="refitFrom"><span>-</span>
+            <input class="input-decorate range-input-to" type="text" value="2022" name="refitTo">
+          </div>
+        </div>
+        <div class="range-sliders-container style-range-container range-slider-second">
+          <div class="slider-track"></div>
+          <div class="slider-track slider-track-color"></div>
+          <input class="slider-1" type="range" min="2012" max="2022" value="2012">
+          <input class="slider-2" type="range" min="2012" max="2022" value="2022">
+        </div>
+      </div>
+    </div> -->
+    <div class="btn-container btns-desktop">
+      <a class="btn btn--blue reset-filters" href="#">Сбросить фильтры</a>
+    </div>
+    <div class="btn-container btns-mobile">
+      <a class="btn btn--blue apply-filters" href="#">Преминить</a>
+      <a class="btn btn--white reset-filters" href="#">Сбросить фильтры</a>
+    </div>
+  </form>
+</div>
